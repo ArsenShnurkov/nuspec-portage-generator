@@ -36,6 +36,17 @@
     <Compile Include="MainMenuForm.Designer.cs">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="OptionsDialog\GeneralSettingsPage.Designer.cs" />
+    <Compile Include="OptionsDialog\GeneralSettingsPage.cs" />
+    <Compile Include="OptionsDialog\LaymanSettingsPage.Designer.cs" />
+    <Compile Include="OptionsDialog\LaymanSettingsPage.cs" />
+    <Compile Include="OptionsDialog\NuGetSettingsPage.Designer.cs" />
+    <Compile Include="OptionsDialog\NuGetSettingsPage.cs" />
+    <Compile Include="OptionsDialog\OptionsDialog.Designer.cs" />
+    <Compile Include="OptionsDialog\OptionsDialog.cs" />
+    <Compile Include="OptionsDialog\PortageSettingsPage.Designer.cs" />
+    <Compile Include="OptionsDialog\PortageSettingsPage.cs" />
+    <Compile Include="OptionsDialog\PropertyPage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />
@@ -46,6 +57,21 @@
     <EmbeddedResource Include="MainMenuForm.resx">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Bitmaps\GeneralSettingsPage.bmp" />
+    <EmbeddedResource Include="Resources\Bitmaps\LaymanSettingsPage.bmp" />
+    <EmbeddedResource Include="Resources\Bitmaps\NuGetSettingsPage.bmp" />
+    <EmbeddedResource Include="Resources\Bitmaps\PortageSettingsPage.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="OptionsDialog\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="OptionsDialog\GeneralSettingsPage.resx" />
+    <None Include="OptionsDialog\LaymanSettingsPage.resx" />
+    <None Include="OptionsDialog\NuGetSettingsPage.resx" />
+    <None Include="OptionsDialog\OptionsDialog.resx" />
+    <None Include="OptionsDialog\PortageSettingsPage.resx" />
+  </ItemGroup>
 </Project>

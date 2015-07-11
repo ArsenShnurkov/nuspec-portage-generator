@@ -240,6 +240,16 @@ namespace NuspecPortageGenerator
 				this.toolStripSeparator2,
 				this.quitToolStripMenuItem,
 			});
+			this.settings_ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+				this.editSettings_ToolStripMenuItem,
+				this.separatorSetting1_ToolStripSeparator,
+				this.loadSettings_ToolStripMenuItem,
+				this.reloadSettings_FileToolStripMenuItem,
+				this.saveSettings_ToolStripMenuItem,
+				this.saveSettingsAs_ToolStripMenuItem,
+				this.separatorSetting2_ToolStripSeparator,
+				this.newSettings_ToolStripMenuItem,
+			});
 			this.ebuild_ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 				this.propertiesEbuild_ToolStripMenuItem,
 				this.separatorEbuild1_ToolStripSeparator,
@@ -307,16 +317,6 @@ namespace NuspecPortageGenerator
 				this.findToolStripMenuItem,
 				this.findNextToolStripMenuItem,
 				this.findAndReplaceToolStripMenuItem,
-			});
-			this.settings_ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-				this.editSettings_ToolStripMenuItem,
-				this.separatorSetting1_ToolStripSeparator,
-				this.loadSettings_ToolStripMenuItem,
-				this.reloadSettings_FileToolStripMenuItem,
-				this.saveSettings_ToolStripMenuItem,
-				this.saveSettingsAs_ToolStripMenuItem,
-				this.separatorSetting2_ToolStripSeparator,
-				this.newSettings_ToolStripMenuItem,
 			});
 			this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 				this.helpToolStripMenuItem1,
@@ -880,7 +880,7 @@ namespace NuspecPortageGenerator
 			this.editSettings_ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("default.Image")));
 			
 			this.editSettings_ToolStripMenuItem.Text = "Options";
-			this.editSettings_ToolStripMenuItem.Click += new System.EventHandler(this.NonImplemented_Click);
+			this.editSettings_ToolStripMenuItem.Click += new System.EventHandler(this.editSettings_ToolStripMenuItem_Click);
 		
 		
 		
