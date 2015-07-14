@@ -13,20 +13,20 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <PlatformTarget>x86</PlatformTarget>
+    <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -47,11 +47,18 @@
     <Compile Include="OptionsDialog\PortageSettingsPage.Designer.cs" />
     <Compile Include="OptionsDialog\PortageSettingsPage.cs" />
     <Compile Include="OptionsDialog\PropertyPage.cs" />
+    <Compile Include="OptionsDialog\OptionsDialogSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Xml" />
+    <Reference Include="SharpHsql">
+      <HintPath>..\packages\SharpHSQL.1.0.3\lib\net40\SharpHSQL.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainMenuForm.resx">
@@ -73,5 +80,6 @@
     <None Include="OptionsDialog\NuGetSettingsPage.resx" />
     <None Include="OptionsDialog\OptionsDialog.resx" />
     <None Include="OptionsDialog\PortageSettingsPage.resx" />
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

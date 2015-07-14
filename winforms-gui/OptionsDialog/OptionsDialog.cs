@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Diagnostics;
+using System;
 
 namespace NuspecPortageGenerator
 {
@@ -16,10 +18,18 @@ namespace NuspecPortageGenerator
             InitializeComponent();
         }
 
+		OptionsDialogSettings settings = new OptionsDialogSettings();
+
         private void OptionsDialog_Load(object sender, System.EventArgs e)
         {
-            //var defaultImage = new Bitmap(GetType(), "Bitmaps.DefaultOptionsPage.bmp");
-            //imageList.Images.Add(defaultImage);
+			try
+			{
+			settings.LoadFromDisk ();
+			}
+			catch (Exception ex)
+			{
+				Debug.WriteLine (ex.ToString ());
+			}
 
             AddPageControls();
             SelectFirstListItem();
