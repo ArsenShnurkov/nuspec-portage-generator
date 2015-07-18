@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>nuspec-portage-generator</id>
+    <version>0.0.1</version>
+    <title>Nuspec portage generator</title>
+    <authors>given to people by aliens</authors>
+    <owners>gentoo dotnet herd</owners>
+    <licenseUrl>http://www.gnu.org/licenses/gpl-3.0.html</licenseUrl>
+    <projectUrl>https://github.com/ArsenShnurkov/nuspec-portage-generator</projectUrl>
+    <iconUrl></iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>metadata processing can and should be automated</description>
+    <summary>contains automation helpers</summary>
+    <releaseNotes>v0.0.1 - initial code</releaseNotes>
+    <language>en-US</language>
+    <tags>nunit portage</tags>
+  </metadata>
+</package>
