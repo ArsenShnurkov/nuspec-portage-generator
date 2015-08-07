@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using System;
 
-namespace NuspecPortageGenerator
+namespace WinFormsGUI
 {
     public partial class OptionsDialog : Form
     {

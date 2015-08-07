@@ -4,7 +4,7 @@ using System.Data.Common;
 using System.Data.Hsql;
 using System.Diagnostics;
 
-namespace NuspecPortageGenerator
+namespace WinFormsGUI
 {
 	public class OptionsDialogSettings
 	{

@@ -2,31 +2,26 @@
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{C608A1D1-D44B-49C2-A70C-EAF2343A93B7}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>NuspecPortageGenerator</RootNamespace>
+    <RootNamespace>WinFormsGUI</RootNamespace>
     <AssemblyName>winforms-gui</AssemblyName>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <Optimize>true</Optimize>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>false</Optimize>
     <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
     <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -61,13 +56,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MainMenuForm.resx">
-      <DependentUpon>MainMenuForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Bitmaps\GeneralSettingsPage.bmp" />
     <EmbeddedResource Include="Resources\Bitmaps\LaymanSettingsPage.bmp" />
     <EmbeddedResource Include="Resources\Bitmaps\NuGetSettingsPage.bmp" />
     <EmbeddedResource Include="Resources\Bitmaps\PortageSettingsPage.bmp" />
+    <EmbeddedResource Include="MainMenuForm.resx">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -81,5 +76,11 @@
     <None Include="OptionsDialog\OptionsDialog.resx" />
     <None Include="OptionsDialog\PortageSettingsPage.resx" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\console-swf-control-for-mono\console-swf-control-for-mono.csproj">
+      <Project>{1150CF7D-E749-4E24-9EAE-F6EED62C7FDB}</Project>
+      <Name>console-swf-control-for-mono</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>

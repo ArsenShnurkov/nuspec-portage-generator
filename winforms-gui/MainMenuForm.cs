@@ -11,13 +11,21 @@ using System.Text.RegularExpressions;
 using System.Reflection;
 using System.Diagnostics;
 
-namespace NuspecPortageGenerator
+namespace WinFormsGUI
 {
 	public partial class MainMenuForm : Form
 	{
 		public MainMenuForm()
 		{
 			InitializeComponent();
+			Trace.WriteLine (saveFileDialog1.FileName);
+
+			// http://www.gnu.org/software/bash/manual/html_node/Invoking-Bash.html
+			consoleControl.ClearOutput ();
+			consoleControl.StartProcess ("/bin/bash", "-i"); 
+			consoleControl.IsInputEnabled = true;
+			consoleControl.SendKeyboardCommandsToProcess = true;
+			UpdateUIState ();
 		}
 		private void NonImplemented_Click(object sender, EventArgs e)
 		{
@@ -37,6 +45,19 @@ namespace NuspecPortageGenerator
 			{
 				Debug.WriteLine (ex.ToString ());
 			}
+		}
+		/// <summary>
+		/// Updates the state of the UI.
+		/// </summary>
+		private void UpdateUIState()
+		{
+			//  Update the state.
+			if (consoleControl.IsProcessRunning)
+				toolStripStatusLabel1.Text = "Running " + System.IO.Path.GetFileName(consoleControl.ProcessInterface.ProcessFileName);
+			else
+				toolStripStatusLabel1.Text = "Not Running";
+
+			//  Update toolbar buttons
 		}
 	}
 }

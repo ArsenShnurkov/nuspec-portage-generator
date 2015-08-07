@@ -1,8 +1,12 @@
-namespace NuspecPortageGenerator
+namespace WinFormsGUI
 {
+	using System.Windows.Forms;
+
 	partial class MainMenuForm
 	{
 		private System.Windows.Forms.MenuStrip menuStrip1;
+		private System.Windows.Forms.TabPage consoleTabPage;
+		private ConsoleControlAPI.ConsoleControl consoleControl;
 		// .ebuild
 		private System.Windows.Forms.ToolStripMenuItem ebuild_ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem propertiesEbuild_ToolStripMenuItem;
@@ -119,6 +123,7 @@ namespace NuspecPortageGenerator
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenuForm));
+
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.ebuild_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.propertiesEbuild_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem(); 
@@ -227,6 +232,8 @@ namespace NuspecPortageGenerator
 			this.separatorSetting2_ToolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
 			this.newSettings_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 		
+			this.consoleControl = new ConsoleControlAPI.ConsoleControl();
+			this.consoleTabPage = new System.Windows.Forms.TabPage();
 		
 		
 			this.Application_ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -324,20 +331,12 @@ namespace NuspecPortageGenerator
 			});
 
 			this.propertiesEbuild_ToolStripMenuItem.Text = "ebuild properties...";
-			this.propertiesEbuild_ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("default.Image")));
-
 			this.propertiesNuspec_ToolStripMenuItem.Text = ".nuspec properties...";
 			this.saveNuspec_ToolStripMenuItem.Text = "Save .nuspec...";
 			this.saveNuspecAs_ToolStripMenuItem.Text = "Save .nuspec as...";
 			this.openNuspec_ToolStripMenuItem.Text = "Open .nuspec...";
 			this.reloadNuspec_ToolStripMenuItem.Text = "Reload .nuspec...";
 			this.newNuspec_ToolStripMenuItem.Text = "new .nuspec...";
-			this.propertiesNuspec_ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("default.Image")));
-			this.saveNuspec_ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("default.Image")));
-			this.saveNuspecAs_ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("default.Image")));
-			this.openNuspec_ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("default.Image")));
-			this.reloadNuspec_ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("default.Image")));
-			this.newNuspec_ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("default.Image")));
 
 			this.settings_ToolStripMenuItem.Text = "Tools";
 			this.Application_ToolStripMenuItem.Text = "View";
@@ -498,82 +497,32 @@ namespace NuspecPortageGenerator
 			this.MakeH6ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D6)));
 			this.MakeH6ToolStripMenuItem.Text = "Make H6";
 			this.MakeH6ToolStripMenuItem.Click += new System.EventHandler(this.NonImplemented_Click);
-		
-		
-		
-			
-		
-		
-		
-			
+
 			this.highlightingToolStripMenuItem.Text = "Highlighting";
-		
-		
-		
-			
+
 			this.insertNbspToolStripMenuItem.Text = "Insert &&nbsp;";
 			this.insertNbspToolStripMenuItem.Click += new System.EventHandler(this.NonImplemented_Click);
 			this.insertNbspToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control)
 				| System.Windows.Forms.Keys.Space)));
-		
-		
-		
-			
-		
-		
-		
-		
-			
-		
-		
-		
 
-			this.lineToolStripMenuItem.Text = "Line";
-		
-		
-		
+						this.lineToolStripMenuItem.Text = "Line";
 			
 			this.moveLineUpToolStripMenuItem.Text = "Move Line Up";
 			this.moveLineUpToolStripMenuItem.Click += new System.EventHandler(this.NonImplemented_Click);
 		
-		
-		
-			
 			this.moveLineDownToolStripMenuItem.Text = "Move Line Down";
 			this.moveLineDownToolStripMenuItem.Click += new System.EventHandler(this.NonImplemented_Click);
-		
-		
-		
-			
-		
-		
-		
-			
+
 			this.cutLineToolStripMenuItem.Text = "Cut Line";
 			this.cutLineToolStripMenuItem.Click += new System.EventHandler(this.NonImplemented_Click);
-		
-		
-		
-			
+
 			this.copyLineToolStripMenuItem.Text = "Copy Line";
 			this.copyLineToolStripMenuItem.Click += new System.EventHandler(this.NonImplemented_Click);
-		
-		
-		
-			
-		
-		
-		
-			
+
 			this.commentLineToolStripMenuItem.Text = "Comment Line";
 			this.commentLineToolStripMenuItem.Click += new System.EventHandler(this.NonImplemented_Click);
-		
-		
-		
 
 			this.selectionToolStripMenuItem.Text = "Selection";
-		
-		
 		
 			this.loadSettings_ToolStripMenuItem.Text = "Load settings...";
 			this.reloadSettings_FileToolStripMenuItem.Text = "Reload settings...";
@@ -583,14 +532,7 @@ namespace NuspecPortageGenerator
 
 			this.clearSelectionToolStripMenuItem.Text = "Clear Selection";
 			this.clearSelectionToolStripMenuItem.Click += new System.EventHandler(this.NonImplemented_Click);
-		
-		
-		
-			
-		
-		
-		
-			
+
 			this.wrapInToolStripMenuItem.Text = "Wrap in /* */";
 			this.wrapInToolStripMenuItem.Click += new System.EventHandler(this.NonImplemented_Click);
 		
@@ -679,9 +621,11 @@ namespace NuspecPortageGenerator
 			this.toolStrip1.Text = "toolStrip1";
 
 			
-
+			// bookmark-CC
+			consoleControl.Dock = DockStyle.Fill;
 		
-		
+			consoleTabPage.Text = "Default console";
+			consoleTabPage.Controls.Add (consoleControl);
 		
 			this.tabControl1.AllowDrop = true;
 			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -690,6 +634,7 @@ namespace NuspecPortageGenerator
 			this.tabControl1.SelectedIndex = 0;
 			this.tabControl1.TabIndex = 3;
 			this.tabControl1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NonImplemented_Click);
+			this.tabControl1.TabPages.Add(consoleTabPage);
 		
 		
 		
@@ -798,7 +743,6 @@ namespace NuspecPortageGenerator
 			this.newEbuild_ToolStripMenuItem.Click += new System.EventHandler(this.NonImplemented_Click);
 		
 		
-		
 			this.openEbuild_ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("default.Image")));
 			
 			this.openEbuild_ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
@@ -826,8 +770,6 @@ namespace NuspecPortageGenerator
 			
 			this.saveAllToolStripMenuItem.Text = "Save All";
 			this.saveAllToolStripMenuItem.Click += new System.EventHandler(this.NonImplemented_Click);
-		
-		
 		
 			this.undoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("default.Image")));
 			
@@ -881,8 +823,6 @@ namespace NuspecPortageGenerator
 			
 			this.editSettings_ToolStripMenuItem.Text = "Options";
 			this.editSettings_ToolStripMenuItem.Click += new System.EventHandler(this.editSettings_ToolStripMenuItem_Click);
-		
-		
 		
 			this.helpToolStripMenuItem1.Enabled = false;
 			this.helpToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("default.Image")));

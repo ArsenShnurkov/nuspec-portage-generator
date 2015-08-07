@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace NuspecPortageGenerator
+namespace WinFormsGUI
 {
     internal partial class NuGetSettingsPage : PropertyPage
     {

@@ -7,23 +7,29 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "core", "core\core.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "winforms-gui", "winforms-gui\winforms-gui.csproj", "{C608A1D1-D44B-49C2-A70C-EAF2343A93B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "console-swf-control-for-mono", "console-swf-control-for-mono\console-swf-control-for-mono.csproj", "{1150CF7D-E749-4E24-9EAE-F6EED62C7FDB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x86 = Debug|x86
-		Release|x86 = Release|x86
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9613CC31-1778-483C-88AF-018FE68D6B67}.Debug|x86.ActiveCfg = Debug|x86
-		{9613CC31-1778-483C-88AF-018FE68D6B67}.Debug|x86.Build.0 = Debug|x86
-		{9613CC31-1778-483C-88AF-018FE68D6B67}.Release|x86.ActiveCfg = Release|x86
-		{9613CC31-1778-483C-88AF-018FE68D6B67}.Release|x86.Build.0 = Release|x86
-		{C608A1D1-D44B-49C2-A70C-EAF2343A93B7}.Debug|x86.ActiveCfg = Debug|x86
-		{C608A1D1-D44B-49C2-A70C-EAF2343A93B7}.Debug|x86.Build.0 = Debug|x86
-		{C608A1D1-D44B-49C2-A70C-EAF2343A93B7}.Release|x86.ActiveCfg = Release|x86
-		{C608A1D1-D44B-49C2-A70C-EAF2343A93B7}.Release|x86.Build.0 = Release|x86
-		{FA993D6C-3EFD-496E-9218-D9F90205A2F1}.Debug|x86.ActiveCfg = Debug|x86
-		{FA993D6C-3EFD-496E-9218-D9F90205A2F1}.Debug|x86.Build.0 = Debug|x86
-		{FA993D6C-3EFD-496E-9218-D9F90205A2F1}.Release|x86.ActiveCfg = Release|x86
-		{FA993D6C-3EFD-496E-9218-D9F90205A2F1}.Release|x86.Build.0 = Release|x86
+		{1150CF7D-E749-4E24-9EAE-F6EED62C7FDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1150CF7D-E749-4E24-9EAE-F6EED62C7FDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1150CF7D-E749-4E24-9EAE-F6EED62C7FDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1150CF7D-E749-4E24-9EAE-F6EED62C7FDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9613CC31-1778-483C-88AF-018FE68D6B67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9613CC31-1778-483C-88AF-018FE68D6B67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9613CC31-1778-483C-88AF-018FE68D6B67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9613CC31-1778-483C-88AF-018FE68D6B67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C608A1D1-D44B-49C2-A70C-EAF2343A93B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C608A1D1-D44B-49C2-A70C-EAF2343A93B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C608A1D1-D44B-49C2-A70C-EAF2343A93B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C608A1D1-D44B-49C2-A70C-EAF2343A93B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA993D6C-3EFD-496E-9218-D9F90205A2F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA993D6C-3EFD-496E-9218-D9F90205A2F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA993D6C-3EFD-496E-9218-D9F90205A2F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA993D6C-3EFD-496E-9218-D9F90205A2F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

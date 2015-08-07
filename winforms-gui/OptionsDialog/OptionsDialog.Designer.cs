@@ -1,4 +1,4 @@
-﻿namespace NuspecPortageGenerator
+﻿namespace WinFormsGUI
 {
     partial class OptionsDialog
     {

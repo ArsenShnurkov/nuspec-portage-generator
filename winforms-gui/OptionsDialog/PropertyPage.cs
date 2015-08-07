@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
 using System.Windows.Forms;
 
-namespace NuspecPortageGenerator
+namespace WinFormsGUI
 {
     public class PropertyPage : UserControl
     {

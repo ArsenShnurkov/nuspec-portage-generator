@@ -5,8 +5,9 @@ using System.Windows.Forms;
 using System.IO;
 using System.Text;
 
-namespace NuspecPortageGenerator
+namespace WinFormsGUI
 {
+
 	static class Program
 	{
 		static ApplicationContext aContext;
@@ -18,9 +19,9 @@ namespace NuspecPortageGenerator
 			aContext = new ApplicationContext (form);
 			Application.Run(aContext);
 		}
-		public static MainMenuForm GetMainForm()
+		public static WinFormsGUI.MainMenuForm GetMainForm()
 		{
-			var form = (MainMenuForm)aContext.MainForm;
+			var form = (WinFormsGUI.MainMenuForm)aContext.MainForm;
 			return form;
 		}
 	}
