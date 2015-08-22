@@ -133,7 +133,10 @@ namespace ConsoleControlAPI
 			foreach (DictionaryEntry ent in Environment.GetEnvironmentVariables(EnvironmentVariableTarget.User))
 				psi.EnvironmentVariables[(string)ent.Key] = (string)ent.Value;
 			//psi.EnvironmentVariables.Add ("PS1", "(chroot) ${PS1}");
-			psi.EnvironmentVariables.Add ("TERM", @"xterm");
+			if (psi.EnvironmentVariables.ContainsKey ("TERM") == false)
+			{
+				psi.EnvironmentVariables.Add ("TERM", @"xterm");
+			}
 
             //  Set the options.
             psi.UseShellExecute = false;
