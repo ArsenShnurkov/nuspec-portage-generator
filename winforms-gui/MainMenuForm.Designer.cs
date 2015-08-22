@@ -5,8 +5,6 @@ namespace WinFormsGUI
 	partial class MainMenuForm
 	{
 		private System.Windows.Forms.MenuStrip menuStrip1;
-		private System.Windows.Forms.TabPage consoleTabPage;
-		private ConsoleControlAPI.ConsoleControl consoleControl;
 		// .ebuild
 		private System.Windows.Forms.ToolStripMenuItem ebuild_ToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem propertiesEbuild_ToolStripMenuItem;
@@ -232,9 +230,7 @@ namespace WinFormsGUI
 			this.separatorSetting2_ToolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
 			this.newSettings_ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 		
-			this.consoleControl = new ConsoleControlAPI.ConsoleControl();
-			this.consoleTabPage = new System.Windows.Forms.TabPage();
-		
+	
 		
 			this.Application_ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 				this.saveAllToolStripMenuItem,
@@ -621,20 +617,14 @@ namespace WinFormsGUI
 			this.toolStrip1.Text = "toolStrip1";
 
 			
-			// bookmark-CC
-			consoleControl.Dock = DockStyle.Fill;
-		
-			consoleTabPage.Text = "Default console";
-			consoleTabPage.Controls.Add (consoleControl);
-		
+	
 			this.tabControl1.AllowDrop = true;
 			this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tabControl1.Location = new System.Drawing.Point(0, 49);
-			
+
 			this.tabControl1.SelectedIndex = 0;
 			this.tabControl1.TabIndex = 3;
 			this.tabControl1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.NonImplemented_Click);
-			this.tabControl1.TabPages.Add(consoleTabPage);
 		
 		
 		
