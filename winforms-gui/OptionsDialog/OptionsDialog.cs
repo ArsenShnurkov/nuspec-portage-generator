@@ -16,6 +16,7 @@ namespace WinFormsGUI
             Pages = new List<PropertyPage>();
 
             InitializeComponent();
+			this.PerformLayout ();
         }
 
 		OptionsDialogSettings settings = new OptionsDialogSettings();

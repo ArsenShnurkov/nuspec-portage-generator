@@ -1,4 +1,7 @@
-﻿namespace WinFormsGUI
+﻿using System.Windows.Forms;
+using System.Drawing;
+
+namespace WinFormsGUI
 {
     partial class OptionsDialog
     {
@@ -29,14 +32,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.pagePanel = new System.Windows.Forms.Panel();
-            this.listPanel = new System.Windows.Forms.Panel();
+			this.splitter = new System.Windows.Forms.SplitContainer();
+			this.pagePanel = splitter.Panel2;
+			this.listPanel = splitter.Panel1;
             this.listView = new System.Windows.Forms.ListView();
             this.imageList = new System.Windows.Forms.ImageList(this.components);
             this.buttonPanel = new System.Windows.Forms.Panel();
             this.cancelButton = new System.Windows.Forms.Button();
 			this.applyButton = new System.Windows.Forms.Button();
             this.okButton = new System.Windows.Forms.Button();
+			this.splitter.SuspendLayout();
             this.listPanel.SuspendLayout();
             this.buttonPanel.SuspendLayout();
             this.SuspendLayout();
@@ -44,22 +49,23 @@
             // pagePanel
             // 
             this.pagePanel.BackColor = System.Drawing.SystemColors.Control;
-            this.pagePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pagePanel.Location = new System.Drawing.Point(95, 0);
+            //this.pagePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            //this.pagePanel.Location = new System.Drawing.Point(95, 0);
             this.pagePanel.Name = "pagePanel";
-            this.pagePanel.Size = new System.Drawing.Size(375, 308);
-            this.pagePanel.TabIndex = 0;
+            //this.pagePanel.Size = new System.Drawing.Size(375, 308);
+           	//this.pagePanel.TabIndex = 0;
             // 
             // listPanel
             // 
             this.listPanel.BackColor = System.Drawing.SystemColors.Control;
             this.listPanel.Controls.Add(this.listView);
-            this.listPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.listPanel.Location = new System.Drawing.Point(0, 0);
+			//this.listPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            ////this.listPanel.Location = new System.Drawing.Point(0, 0);
             this.listPanel.Name = "listPanel";
             this.listPanel.Padding = new System.Windows.Forms.Padding(3);
-            this.listPanel.Size = new System.Drawing.Size(95, 308);
-            this.listPanel.TabIndex = 1;
+            this.listPanel.Size = new System.Drawing.Size(80, 308);
+			//this.splitter.SplitterDistance = 5; //this.listPanel.Size.Width;
+            //this.listPanel.TabIndex = 1;
             // 
             // listView
             // 
@@ -124,6 +130,13 @@
             this.okButton.Text = "OK";
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
+
+			this.splitter.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.splitter.Orientation = Orientation.Vertical;
+			this.splitter.FixedPanel = FixedPanel.Panel1;
+			this.splitter.Panel1MinSize = this.listPanel.Size.Width;
+			this.splitter.SplitterDistance = this.listPanel.Size.Width;
+
             // 
             // OptionsDialog
             // 
@@ -132,13 +145,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(630, 460);
-            this.Controls.Add(this.pagePanel);
-            this.Controls.Add(this.listPanel);
+			this.Controls.Add(splitter);
             this.Controls.Add(this.buttonPanel);
             this.Name = "OptionsDialog";
             this.Text = "OptionsDialog";
             this.Load += new System.EventHandler(this.OptionsDialog_Load);
+
+
+
             this.listPanel.ResumeLayout(false);
+			this.splitter.ResumeLayout (false);
             this.buttonPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -146,8 +162,9 @@
 
         #endregion
 
+		private System.Windows.Forms.SplitContainer splitter;
         private System.Windows.Forms.Panel pagePanel;
-        private System.Windows.Forms.Panel listPanel;
+		private System.Windows.Forms.Panel listPanel;
         private System.Windows.Forms.ListView listView;
         private System.Windows.Forms.Panel buttonPanel;
         private System.Windows.Forms.Button cancelButton;
