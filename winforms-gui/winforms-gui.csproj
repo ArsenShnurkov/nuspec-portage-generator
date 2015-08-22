@@ -7,6 +7,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>WinFormsGUI</RootNamespace>
     <AssemblyName>winforms-gui</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <Optimize>false</Optimize>
@@ -31,15 +32,25 @@
     <Compile Include="MainMenuForm.Designer.cs">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OptionsDialog\GeneralSettingsPage.Designer.cs" />
+    <Compile Include="OptionsDialog\GeneralSettingsPage.Designer.cs">
+      <DependentUpon>GeneralSettingsPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="OptionsDialog\GeneralSettingsPage.cs" />
-    <Compile Include="OptionsDialog\LaymanSettingsPage.Designer.cs" />
+    <Compile Include="OptionsDialog\LaymanSettingsPage.Designer.cs">
+      <DependentUpon>LaymanSettingsPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="OptionsDialog\LaymanSettingsPage.cs" />
-    <Compile Include="OptionsDialog\NuGetSettingsPage.Designer.cs" />
+    <Compile Include="OptionsDialog\NuGetSettingsPage.Designer.cs">
+      <DependentUpon>NuGetSettingsPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="OptionsDialog\NuGetSettingsPage.cs" />
-    <Compile Include="OptionsDialog\OptionsDialog.Designer.cs" />
+    <Compile Include="OptionsDialog\OptionsDialog.Designer.cs">
+      <DependentUpon>OptionsDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="OptionsDialog\OptionsDialog.cs" />
-    <Compile Include="OptionsDialog\PortageSettingsPage.Designer.cs" />
+    <Compile Include="OptionsDialog\PortageSettingsPage.Designer.cs">
+      <DependentUpon>PortageSettingsPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="OptionsDialog\PortageSettingsPage.cs" />
     <Compile Include="OptionsDialog\PropertyPage.cs" />
     <Compile Include="OptionsDialog\OptionsDialogSettings.cs" />
@@ -53,6 +64,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="SharpHsql">
       <HintPath>..\packages\SharpHSQL.1.0.3\lib\net40\SharpHSQL.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.TextEditor">
+      <HintPath>..\packages\ICSharpCode.TextEditor.3.2.2\lib\net45\ICSharpCode.TextEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -70,11 +84,21 @@
     <Folder Include="OptionsDialog\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="OptionsDialog\GeneralSettingsPage.resx" />
-    <None Include="OptionsDialog\LaymanSettingsPage.resx" />
-    <None Include="OptionsDialog\NuGetSettingsPage.resx" />
-    <None Include="OptionsDialog\OptionsDialog.resx" />
-    <None Include="OptionsDialog\PortageSettingsPage.resx" />
+    <None Include="OptionsDialog\GeneralSettingsPage.resx">
+      <DependentUpon>GeneralSettingsPage.cs</DependentUpon>
+    </None>
+    <None Include="OptionsDialog\LaymanSettingsPage.resx">
+      <DependentUpon>LaymanSettingsPage.cs</DependentUpon>
+    </None>
+    <None Include="OptionsDialog\NuGetSettingsPage.resx">
+      <DependentUpon>NuGetSettingsPage.cs</DependentUpon>
+    </None>
+    <None Include="OptionsDialog\OptionsDialog.resx">
+      <DependentUpon>OptionsDialog.cs</DependentUpon>
+    </None>
+    <None Include="OptionsDialog\PortageSettingsPage.resx">
+      <DependentUpon>PortageSettingsPage.cs</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
