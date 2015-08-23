@@ -32,28 +32,28 @@
     <Compile Include="MainMenuForm.Designer.cs">
       <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="OptionsDialog\GeneralSettingsPage.Designer.cs">
+    <Compile Include="DialogPlatformSettings\GeneralSettingsPage.Designer.cs">
       <DependentUpon>GeneralSettingsPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="OptionsDialog\GeneralSettingsPage.cs" />
-    <Compile Include="OptionsDialog\LaymanSettingsPage.Designer.cs">
+    <Compile Include="DialogPlatformSettings\GeneralSettingsPage.cs" />
+    <Compile Include="DialogPlatformSettings\LaymanSettingsPage.Designer.cs">
       <DependentUpon>LaymanSettingsPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="OptionsDialog\LaymanSettingsPage.cs" />
-    <Compile Include="OptionsDialog\NuGetSettingsPage.Designer.cs">
+    <Compile Include="DialogPlatformSettings\LaymanSettingsPage.cs" />
+    <Compile Include="DialogPlatformSettings\NuGetSettingsPage.Designer.cs">
       <DependentUpon>NuGetSettingsPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="OptionsDialog\NuGetSettingsPage.cs" />
-    <Compile Include="OptionsDialog\OptionsDialog.Designer.cs">
+    <Compile Include="DialogPlatformSettings\NuGetSettingsPage.cs" />
+    <Compile Include="DialogPlatformSettings\OptionsDialog.Designer.cs">
       <DependentUpon>OptionsDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="OptionsDialog\OptionsDialog.cs" />
-    <Compile Include="OptionsDialog\PortageSettingsPage.Designer.cs">
+    <Compile Include="DialogPlatformSettings\OptionsDialog.cs" />
+    <Compile Include="DialogPlatformSettings\PortageSettingsPage.Designer.cs">
       <DependentUpon>PortageSettingsPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="OptionsDialog\PortageSettingsPage.cs" />
-    <Compile Include="OptionsDialog\PropertyPage.cs" />
-    <Compile Include="OptionsDialog\OptionsDialogSettings.cs" />
+    <Compile Include="DialogPlatformSettings\PortageSettingsPage.cs" />
+    <Compile Include="DialogPlatformSettings\PropertyPage.cs" />
+    <Compile Include="DialogPlatformSettings\OptionsDialogSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />
@@ -81,25 +81,25 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Resources\" />
-    <Folder Include="OptionsDialog\" />
+    <Folder Include="DialogPlatformSettings\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="OptionsDialog\GeneralSettingsPage.resx">
+    <None Include="packages.config" />
+    <None Include="DialogPlatformSettings\GeneralSettingsPage.resx">
       <DependentUpon>GeneralSettingsPage.cs</DependentUpon>
     </None>
-    <None Include="OptionsDialog\LaymanSettingsPage.resx">
+    <None Include="DialogPlatformSettings\LaymanSettingsPage.resx">
       <DependentUpon>LaymanSettingsPage.cs</DependentUpon>
     </None>
-    <None Include="OptionsDialog\NuGetSettingsPage.resx">
+    <None Include="DialogPlatformSettings\NuGetSettingsPage.resx">
       <DependentUpon>NuGetSettingsPage.cs</DependentUpon>
     </None>
-    <None Include="OptionsDialog\OptionsDialog.resx">
+    <None Include="DialogPlatformSettings\OptionsDialog.resx">
       <DependentUpon>OptionsDialog.cs</DependentUpon>
     </None>
-    <None Include="OptionsDialog\PortageSettingsPage.resx">
+    <None Include="DialogPlatformSettings\PortageSettingsPage.resx">
       <DependentUpon>PortageSettingsPage.cs</DependentUpon>
     </None>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\console-swf-control-for-mono\console-swf-control-for-mono.csproj">
