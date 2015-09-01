@@ -3,12 +3,13 @@ using System.Data;
 using System.Data.Common;
 using System.Data.Hsql;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace WinFormsGUI
 {
-	public class OptionsDialogSettings
+	public class EbuildPropertiesSettings
 	{
-		public OptionsDialogSettings ()
+		public EbuildPropertiesSettings ()
 		{
 		}
 

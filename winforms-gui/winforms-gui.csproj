@@ -54,6 +54,32 @@
     <Compile Include="DialogPlatformSettings\PortageSettingsPage.cs" />
     <Compile Include="DialogPlatformSettings\PropertyPage.cs" />
     <Compile Include="DialogPlatformSettings\OptionsDialogSettings.cs" />
+    <Compile Include="DialogEbuildProperties\DialogEbuildProperties.cs" />
+    <Compile Include="DialogEbuildProperties\DialogEbuildProperties.Designer.cs">
+      <DependentUpon>DialogEbuildProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogEbuildProperties\EbuildPropertiesSettings.cs" />
+    <Compile Include="Controls\FileBrowserControl.cs" />
+    <Compile Include="Controls\FileBrowserControl.Designer.cs">
+      <DependentUpon>FileBrowserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogEbuildProperties\EbuildPropertiesControl.cs" />
+    <Compile Include="DialogEbuildProperties\EbuildPropertiesControl.Designer.cs">
+      <DependentUpon>EbuildPropertiesControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Ebuild.cs" />
+    <Compile Include="BusinessObjects\Category.cs" />
+    <Compile Include="BusinessObjects\LocalRepository.cs" />
+    <Compile Include="BusinessObjects\Overlay.cs" />
+    <Compile Include="BusinessObjects\Setup.cs" />
+    <Compile Include="BusinessObjectServices\Model.cs" />
+    <Compile Include="Controls\WebBrowserControl.cs" />
+    <Compile Include="Controls\WebBrowserControl.Designer.cs">
+      <DependentUpon>WebBrowserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\FileBrowserController.cs" />
+    <Compile Include="Controls\FileBrowserModel.cs" />
+    <Compile Include="EbuildGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />
@@ -68,6 +94,7 @@
     <Reference Include="ICSharpCode.TextEditor">
       <HintPath>..\packages\ICSharpCode.TextEditor.3.2.2\lib\net45\ICSharpCode.TextEditor.dll</HintPath>
     </Reference>
+    <Reference Include="Mono.WebBrowser" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Bitmaps\GeneralSettingsPage.bmp" />
@@ -82,12 +109,14 @@
   <ItemGroup>
     <Folder Include="Resources\" />
     <Folder Include="DialogPlatformSettings\" />
+    <Folder Include="DialogEbuildProperties\" />
+    <Folder Include="Controls\" />
+    <Folder Include="BusinessObjects\" />
+    <Folder Include="BusinessObjectServices\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="DialogPlatformSettings\GeneralSettingsPage.resx">
-      <DependentUpon>GeneralSettingsPage.cs</DependentUpon>
-    </None>
+    <None Include="DialogPlatformSettings\GeneralSettingsPage.resx" />
     <None Include="DialogPlatformSettings\LaymanSettingsPage.resx">
       <DependentUpon>LaymanSettingsPage.cs</DependentUpon>
     </None>
@@ -100,11 +129,31 @@
     <None Include="DialogPlatformSettings\PortageSettingsPage.resx">
       <DependentUpon>PortageSettingsPage.cs</DependentUpon>
     </None>
+    <None Include="DialogEbuildProperties\DialogEbuildProperties.resx">
+      <DependentUpon>DialogEbuildProperties.cs</DependentUpon>
+    </None>
+    <None Include="Controls\FileBrowserControl.resx">
+      <DependentUpon>FileBrowserControl.cs</DependentUpon>
+    </None>
+    <None Include="DialogEbuildProperties\EbuildPropertiesControl.resx">
+      <DependentUpon>EbuildPropertiesControl.cs</DependentUpon>
+    </None>
+    <None Include="Controls\WebBrowserControl.resx">
+      <DependentUpon>WebBrowserControl.cs</DependentUpon>
+    </None>
+    <None Include="aspnet_templates\test1.aspx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="aspnet_templates\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\console-swf-control-for-mono\console-swf-control-for-mono.csproj">
       <Project>{1150CF7D-E749-4E24-9EAE-F6EED62C7FDB}</Project>
       <Name>console-swf-control-for-mono</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TemplateEngine\TemplateEngine.csproj">
+      <Project>{B53FF090-D71A-4683-BE7C-882813A3CF97}</Project>
+      <Name>TemplateEngine</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

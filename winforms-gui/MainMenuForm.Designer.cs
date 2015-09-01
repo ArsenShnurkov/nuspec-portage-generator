@@ -327,6 +327,7 @@ namespace WinFormsGUI
 			});
 
 			this.propertiesEbuild_ToolStripMenuItem.Text = "ebuild properties...";
+			this.propertiesEbuild_ToolStripMenuItem.Click += new System.EventHandler(this.EbuildProperties_Click);
 			this.propertiesNuspec_ToolStripMenuItem.Text = ".nuspec properties...";
 			this.saveNuspec_ToolStripMenuItem.Text = "Save .nuspec...";
 			this.saveNuspecAs_ToolStripMenuItem.Text = "Save .nuspec as...";

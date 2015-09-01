@@ -24,7 +24,7 @@ namespace WinFormsGUI
 			// AddConsoleTab ();
 			UpdateUIState ();
 		}
-		private void AddEbuildTab()
+		private TextEditorControl AddEbuildTab()
 		{
 			this.tabControl1.SuspendLayout();
 			try
@@ -42,6 +42,8 @@ namespace WinFormsGUI
 					tabPage.Text = "somefile.ebuild";
 
 					this.tabControl1.TabPages.Add(tabPage);
+
+					return control;
 				}
 				finally
 				{
@@ -55,7 +57,6 @@ namespace WinFormsGUI
 		}
 		private void AddConsoleTab()
 		{
-
 			var consoleTabPage = new System.Windows.Forms.TabPage();
 			var consoleControl = new ConsoleControlAPI.ConsoleControl();
 
@@ -75,19 +76,59 @@ namespace WinFormsGUI
 
 			this.tabControl1.TabPages.Add(consoleTabPage);
 		}
+
+		private void AddFileBrowserTab()
+		{
+			var tabPage = new System.Windows.Forms.TabPage();
+			var control = new FileBrowserControl();
+
+			control.Dock = DockStyle.Fill;
+
+			tabPage.Text = "Ebuild files";
+			tabPage.Controls.Add (control);
+			this.tabControl1.TabPages.Add(tabPage);
+		}
+		private void AddWebBrowserTab()
+		{
+			var tabPage = new System.Windows.Forms.TabPage();
+			var control = new WebBrowserControl();
+
+			control.Dock = DockStyle.Fill;
+
+			tabPage.Text = "WebBrowser";
+			tabPage.Controls.Add (control);
+
+			this.tabControl1.TabPages.Add(tabPage);
+		}
 		private void NonImplemented_Click(object sender, EventArgs e)
 		{
+			
+		}
+
+		private void EbuildProperties_Click(object sender, EventArgs e)
+		{
+			var dlg = new DialogEbuildProperties ();
+			dlg.StartPosition = FormStartPosition.CenterParent;
+			var res = dlg.ShowDialog(this);
+			if (res == DialogResult.OK) {
+				var editor = AddEbuildTab(); // TextEditorControl
+				editor.GenerateEbuildText (dlg.Uri, dlg.Sha1, dlg.EbuildCategory, dlg.EbuildName);
+			}
 		}
 		private void editSettings_ToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			try
 			{
 				var dlg = new OptionsDialog();
+				dlg.StartPosition = FormStartPosition.CenterParent;
 				dlg.Pages.Add(new GeneralSettingsPage());
 				dlg.Pages.Add(new PortageSettingsPage());
 				dlg.Pages.Add(new LaymanSettingsPage());
 				dlg.Pages.Add(new NuGetSettingsPage());
-				dlg.ShowDialog(this);
+				var res = dlg.ShowDialog(this);
+				if (res == DialogResult.OK) {
+					
+				}
 			}
 			catch (Exception ex)
 			{
