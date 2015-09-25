@@ -55,26 +55,41 @@ namespace WinFormsGUI
 				//this.tabControl1.PerformLayout ();
 			}
 		}
+
 		private void AddConsoleTab()
 		{
 			var consoleTabPage = new System.Windows.Forms.TabPage();
 			var consoleControl = new ConsoleControlAPI.ConsoleControl();
 
 			consoleControl.Dock = DockStyle.Fill;
+			consoleControl.ShowDiagnostics = true;
+			consoleControl.FirstActivation += init_control;
 
 			consoleTabPage.Text = "Default console";
 			consoleTabPage.Controls.Add (consoleControl);
 
-			// http://www.gnu.org/software/bash/manual/html_node/Invoking-Bash.html
-			consoleControl.ClearOutput ();
-			consoleControl.StartProcess ("/bin/bash", "-i +m"); 
+			//consoleControl.StartProcess ("/usr/bin/script", "-c '/bin/bash -i'");
+			//consoleControl.StartProcess ("/usr/bin/screen", "-l '/bin/bash -i'");
+			//consoleControl.StartProcess ("/usr/bin/screen", "");
 			consoleControl.IsInputEnabled = true;
 			consoleControl.SendKeyboardCommandsToProcess = true;
-
 
 			consoleTabPage.Controls.Add (consoleControl);
 
 			this.tabControl1.TabPages.Add(consoleTabPage);
+
+		}
+		private void init_control(object sender, EventArgs e)
+		{
+			var consoleControl = sender as ConsoleControlAPI.ConsoleControl;
+			consoleControl.WriteOutput ("---", Color.Blue);
+			consoleControl.ClearOutput ();
+			// http://www.gnu.org/software/bash/manual/html_node/Invoking-Bash.html
+			// -i
+			// If the -i option is present, the shell is interactive. 
+			// 
+			//consoleControl.StartProcess ("/bin/bash", "-i +m"); 
+			consoleControl.StartProcess ("/bin/bash", "-i"); 
 		}
 
 		private void AddFileBrowserTab()
@@ -102,11 +117,12 @@ namespace WinFormsGUI
 		}
 		private void NonImplemented_Click(object sender, EventArgs e)
 		{
-			
 		}
 
 		private void EbuildProperties_Click(object sender, EventArgs e)
 		{
+			AddConsoleTab ();
+
 			var dlg = new DialogEbuildProperties ();
 			dlg.StartPosition = FormStartPosition.CenterParent;
 			var res = dlg.ShowDialog(this);

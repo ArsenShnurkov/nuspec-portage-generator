@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Diagnostics;
+using System.Text;
 
 namespace ConsoleControlAPI
 {
@@ -15,12 +17,15 @@ namespace ConsoleControlAPI
     /// <param name="args">The <see cref="ConsoleEventArgs"/> instance containing the event data.</param>
     public delegate void ConsoleEventHandler(object sender, ConsoleEventArgs args);
 
+	public delegate void FirstActivationEventHandler(object sender, EventArgs args);
+
     /// <summary>
     /// The Console Control allows you to embed a basic console in your application.
     /// </summary>
     [ToolboxBitmap(typeof(Resfinder), "ConsoleControl.ConsoleControl.bmp")]
     public partial class ConsoleControl : UserControl
     {
+		StringBuilder buffer = new StringBuilder();
         /// <summary>
         /// Initializes a new instance of the <see cref="ConsoleControl"/> class.
         /// </summary>
@@ -40,16 +45,33 @@ namespace ConsoleControlAPI
 
             //  Initialise the keymappings.
             InitialiseKeyMappings();
-
-            //  Handle process events.
-            processInterace.OnProcessOutput += processInterace_OnProcessOutput;
-            processInterace.OnProcessError += processInterace_OnProcessError;
-            processInterace.OnProcessInput += processInterace_OnProcessInput;
-            processInterace.OnProcessExit += processInterace_OnProcessExit;
-
-            //  Wait for key down messages on the rich text box.
-            richTextBoxConsole.KeyDown += richTextBoxConsole_KeyDown;
         }
+
+		public event FirstActivationEventHandler FirstActivation;
+
+		protected virtual void OnFirstActivation(EventArgs e) {
+			if (FirstActivation != null) {
+				FirstActivation (this, e);
+			}
+		}
+
+		bool isFirstActivation = true;
+		protected override void OnHandleCreated(EventArgs e) {
+			if (isFirstActivation) {
+				isFirstActivation = false;
+				//  Handle process events.
+				processInterace.OnProcessOutput += processInterace_OnProcessOutput;
+				processInterace.OnProcessError += processInterace_OnProcessError;
+				processInterace.OnProcessInput += processInterace_OnProcessInput;
+				processInterace.OnProcessExit += processInterace_OnProcessExit;
+
+				//  Wait for key down messages on the rich text box.
+				richTextBoxConsole.KeyDown += richTextBoxConsole_KeyDown;
+				OnFirstActivation (e);
+			}
+
+			base.OnHandleCreated (e);
+		}
 
         /// <summary>
         /// Handles the OnProcessError event of the processInterace control.
@@ -193,12 +215,22 @@ namespace ConsoleControlAPI
         /// <param name="color">The color.</param>
         public void WriteOutput(string output, Color color)
         {
-            if (string.IsNullOrEmpty(lastInput) == false && 
-                (output == lastInput || output.Replace("\r\n", "") == lastInput))
-                return;
-                
-            if (!this.IsHandleCreated)
-                return;
+			if (string.IsNullOrEmpty (lastInput) == false &&
+			             (output == lastInput || output.Replace ("\r\n", "") == lastInput))
+			{
+				return;
+			}
+
+			if (!this.IsHandleCreated) {
+				buffer.Append (output);
+				return;
+			}
+
+			if (buffer.Length > 0) {
+				var s = buffer.ToString ();
+				buffer.Clear();
+				WriteOutput (s, color);
+			}
 
             Invoke((Action)(() =>
             {

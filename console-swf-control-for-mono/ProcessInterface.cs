@@ -138,8 +138,8 @@ namespace ConsoleControlAPI
 				psi.EnvironmentVariables.Add ("TERM", @"xterm");
 			}
 
-            //  Set the options.
-            psi.UseShellExecute = false;
+			//  to capture the input/output/error, we need to create the process directly from the executable
+			psi.UseShellExecute = false; // by default, the shell is used to start the process.
             psi.ErrorDialog = false;
             psi.CreateNoWindow = true;
 
