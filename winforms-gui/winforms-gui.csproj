@@ -47,6 +47,7 @@
     <Compile Include="OptionsDialog\PortageSettingsPage.Designer.cs" />
     <Compile Include="OptionsDialog\PortageSettingsPage.cs" />
     <Compile Include="OptionsDialog\PropertyPage.cs" />
+    <Compile Include="OptionsDialog\OptionsDialogSettings.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />

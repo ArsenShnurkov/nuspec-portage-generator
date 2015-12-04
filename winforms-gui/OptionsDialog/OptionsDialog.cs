@@ -12,7 +12,6 @@ namespace NuspecPortageGenerator
         public OptionsDialog()
         {
             Pages = new List<PropertyPage>();
-
             InitializeComponent();
         }
 
@@ -111,6 +110,7 @@ namespace NuspecPortageGenerator
             {
                 propertyPage.OnApply();
             }
+			OptionsDialogSettings.Default.Save ();
         }
     }
 }
