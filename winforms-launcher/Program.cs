@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -12,6 +13,7 @@ namespace NuspecPortageGenerator
 		static ApplicationContext aContext;
 		static void Main(string[] args)
 		{
+
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 			var form = new MainMenuForm ();
@@ -25,3 +27,24 @@ namespace NuspecPortageGenerator
 		}
 	}
 }
+
+/*
+var drives = Directory.GetLogicalDrives ();
+foreach (var drive in drives)
+{
+	Trace.WriteLine (drive);
+	Console.WriteLine (drive);
+}
+
+/
+/mnt/LIFE
+/var/lib/entropy/client/packages
+/var/calculate
+/home
+/mnt/mail
+/mnt/gentoo
+/run/user/1000/gvfs
+/var/run/user/1000/gvfs
+/boot
+/root/.gvfs
+*/
